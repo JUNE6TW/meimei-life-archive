@@ -21,64 +21,30 @@
       <div class="summary" id="summaryText">0 / 0 completed</div>
     </section>
 
-    <p class="tip">勾選紀錄會存在這台手機/瀏覽器裡。同一天重新打開不會消失；隔天會自動開新的日期。</p>
+    <p class="tip">勾選紀錄會存在這台手機/瀏覽器裡。同一天重新打開不會消失；隔天會自動開新的日期。眼藥水之間請間隔 5–10 分鐘。</p>
 
-    <h2 class="section-title">早晨 / Morning</h2>
+    <h2 class="section-title">早上 / Morning</h2>
     <div class="grid">
       <label class="item" data-key="biofermin"><div class="box">✓</div><div><div class="time">After Breakfast</div><div class="name">表飛鳴</div><div class="note">早餐後，觀察食慾、精神、排便與腸胃狀況。</div></div></label>
-      <label class="item" data-key="drop1-morning"><div class="box">✓</div><div><div class="time">Morning</div><div class="name">眼藥水 1</div><div class="note">兩眼各一滴。</div></div></label>
-    </div>
-
-    <h2 class="section-title">中午 / Noon</h2>
-    <div class="grid">
-      <label class="item" data-key="drop1-noon"><div class="box">✓</div><div><div class="time">Noon</div><div class="name">眼藥水 1</div><div class="note">兩眼各一滴。</div></div></label>
-    </div>
-
-    <h2 class="section-title">晚餐 / Dinner</h2>
-    <div class="grid">
-      <label class="item" data-key="drop1-night"><div class="box">✓</div><div><div class="time">Night</div><div class="name">眼藥水 1</div><div class="note">兩眼各一滴。</div></div></label>
-      <label class="item" data-key="fish-oil"><div class="box">✓</div><div><div class="time">Every 2 Days</div><div class="name">魚油</div><div class="note">兩天一次，依家人安排補充。</div></div></label>
-      <label class="item" data-key="antioxidant"><div class="box">✓</div><div><div class="time">Daily</div><div class="name">抗氧化</div><div class="note">一天一次。</div></div></label>
+      <label class="item" data-key="drop1-morning"><div class="box">✓</div><div><div class="time">Morning</div><div class="name">眼藥水 1</div><div class="note">早上一次。左右眼各一滴。</div></div></label>
     </div>
 
     <h2 class="section-title">睡前 / Before Bed</h2>
     <div class="grid">
-      <label class="item" data-key="drop2-bed"><div class="box">✓</div><div><div class="time">Before Bed</div><div class="name">眼藥水 2</div><div class="note">兩眼各一滴。每個眼藥間隔 5–10 分鐘。</div></div></label>
-      <label class="item" data-key="drop3-left"><div class="box">✓</div><div><div class="time">Every 2 Days</div><div class="name">眼藥水 3</div><div class="note">兩天一次，晚上睡前，開刀左眼一滴。點左眼要非常輕柔。</div></div></label>
+      <label class="item" data-key="drop1-bed"><div class="box">✓</div><div><div class="time">Before Bed</div><div class="name">眼藥水 1</div><div class="note">睡前一次。左右眼各一滴。</div></div></label>
+      <label class="item" data-key="drop2-bed"><div class="box">✓</div><div><div class="time">Before Bed</div><div class="name">眼藥水 2</div><div class="note">睡前一次。左右眼各一滴。</div></div></label>
+      <label class="item" data-key="drop3-left"><div class="box">✓</div><div><div class="time">Every 2 Days</div><div class="name">眼藥水 3</div><div class="note">兩天一次，開刀左眼一滴。點左眼要非常輕柔。</div></div></label>
+      <label class="item" data-key="fish-oil"><div class="box">✓</div><div><div class="time">Every 2 Days</div><div class="name">魚油</div><div class="note">兩天一次，依家人安排補充。</div></div></label>
+      <label class="item" data-key="antioxidant"><div class="box">✓</div><div><div class="time">Daily</div><div class="name">抗氧化</div><div class="note">一天一次。</div></div></label>
       <label class="item" data-key="brush"><div class="box">✓</div><div><div class="time">Before Bed</div><div class="name">刷牙</div><div class="note">睡前照護流程。</div></div></label>
       <label class="item" data-key="potty"><div class="box">✓</div><div><div class="time">Before Bed</div><div class="name">尿尿大便</div><div class="note">完成睡前儀式，準備上床睡覺。</div></div></label>
     </div>
 
-    <div class="actions">
-      <button class="btn" id="clearBtn">清除今天紀錄</button>
-      <button class="btn" id="checkAllBtn">全部完成</button>
-    </div>
+    <div class="actions"><button class="btn" id="clearBtn">清除今天紀錄</button><button class="btn" id="checkAllBtn">全部完成</button></div>
   </main>
-
-  <nav class="bottom-nav">
-    <a href="index.html#home">首頁</a>
-    <a href="checklist.html">打卡</a>
-    <a href="index.html#letter">信件</a>
-  </nav>
-
+  <nav class="bottom-nav"><a href="index.html#home">首頁</a><a href="checklist.html">打卡</a><a href="index.html#letter">信件</a></nav>
   <script>
-    const dateKey = new Date().toISOString().slice(0,10);
-    const storageKey = 'meimei-checklist-' + dateKey;
-    const formatter = new Intl.DateTimeFormat('zh-Hant-TW', { year:'numeric', month:'long', day:'numeric', weekday:'long' });
-    document.getElementById('todayText').textContent = formatter.format(new Date());
-    const items = [...document.querySelectorAll('.item')];
-    let state = JSON.parse(localStorage.getItem(storageKey) || '{}');
-    function save(){ localStorage.setItem(storageKey, JSON.stringify(state)); }
-    function render(){
-      let done = 0;
-      items.forEach(item => { const key = item.dataset.key; const isDone = !!state[key]; item.classList.toggle('done', isDone); if(isDone) done++; });
-      document.getElementById('summaryText').textContent = done + ' / ' + items.length + ' completed';
-      document.getElementById('progressBar').style.width = (done / items.length * 100) + '%';
-    }
-    items.forEach(item => item.addEventListener('click', () => { const key = item.dataset.key; state[key] = !state[key]; save(); render(); }));
-    document.getElementById('clearBtn').addEventListener('click', () => { state = {}; save(); render(); });
-    document.getElementById('checkAllBtn').addEventListener('click', () => { state = {}; items.forEach(item => state[item.dataset.key] = true); save(); render(); });
-    render();
+    const dateKey=new Date().toISOString().slice(0,10);const storageKey='meimei-checklist-'+dateKey;const formatter=new Intl.DateTimeFormat('zh-Hant-TW',{year:'numeric',month:'long',day:'numeric',weekday:'long'});document.getElementById('todayText').textContent=formatter.format(new Date());const items=[...document.querySelectorAll('.item')];let state=JSON.parse(localStorage.getItem(storageKey)||'{}');function save(){localStorage.setItem(storageKey,JSON.stringify(state))}function render(){let done=0;items.forEach(item=>{const key=item.dataset.key;const isDone=!!state[key];item.classList.toggle('done',isDone);if(isDone)done++});document.getElementById('summaryText').textContent=done+' / '+items.length+' completed';document.getElementById('progressBar').style.width=(done/items.length*100)+'%'}items.forEach(item=>item.addEventListener('click',()=>{const key=item.dataset.key;state[key]=!state[key];save();render()}));document.getElementById('clearBtn').addEventListener('click',()=>{state={};save();render()});document.getElementById('checkAllBtn').addEventListener('click',()=>{state={};items.forEach(item=>state[item.dataset.key]=true);save();render()});render();
   </script>
 </body>
 </html>
